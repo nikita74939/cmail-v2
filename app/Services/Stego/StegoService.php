@@ -1,19 +1,15 @@
 <?php
-
 namespace App\Services\Stego;
 
 class StegoService
 {
-    /**
-     * Menyembunyikan pesan ke dalam gambar (DCT + LSB)
-     */
     public static function embedMessage($imagePath, $message, $outputPath)
     {
         $image = imagecreatefromjpeg($imagePath);
         $width = imagesx($image);
         $height = imagesy($image);
 
-        $binaryMessage = self::stringToBinary($message) . '1111111111111110'; // end marker
+        $binaryMessage = self::stringToBinary($message) . '1111111111111110'; 
 
         $msgIndex = 0;
         for ($y = 0; $y < $height; $y++) {
@@ -40,9 +36,6 @@ class StegoService
         return $outputPath;
     }
 
-    /**
-     * Mengekstrak pesan dari gambar (DCT + LSB)
-     */
     public static function extractMessage($imagePath)
     {
         $image = imagecreatefromjpeg($imagePath);

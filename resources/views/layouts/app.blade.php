@@ -44,7 +44,8 @@
     <nav class="fixed top-0 left-0 right-0 h-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-30 transition-colors duration-200">
         <div class="flex items-center justify-between h-full px-6">
             <div class="flex items-center space-x-3">
-                <i class="fa-solid fa-envelope text-purple-600 dark:text-purple-400 text-2xl"></i>
+                <img src="{{ asset('img/logo-light.png') }}" class="w-8 h-8 dark:hidden">
+                <img src="{{ asset('img/logo-dark.png') }}" class="w-8 h-8 hidden dark:block">
                 <h1 class="text-xl font-bold text-gray-900 dark:text-white">C-Mail</h1>
             </div>
             

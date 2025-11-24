@@ -54,8 +54,9 @@
     <div class="w-full max-w-md px-6">
         <!-- Logo & Title -->
         <div class="text-center mb-8">
-            <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-600 to-purple-700 dark:from-purple-500 dark:to-purple-600 rounded-2xl shadow-lg mb-4">
-                <i class="fa-solid fa-envelope text-white text-3xl"></i>
+            <div class="inline-flex items-center justify-center w-16 h-16 mt-4 mb-4">
+                <img src="{{ asset('img/logo-light.png') }}" class="dark:hidden">
+                <img src="{{ asset('img/logo-dark.png') }}" class="hidden dark:block">
             </div>
             <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Create Account</h1>
             <p class="text-gray-600 dark:text-gray-400">Join C-Mail and start messaging securely</p>
