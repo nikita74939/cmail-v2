@@ -1,59 +1,106 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# C-Mail
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+C-Mail adalah aplikasi web secure messaging yang memanfaatkan
+**kriptografi modern** (Argon2i, ECC, dan Super Encryption) serta
+**steganografi DCT + LSB** untuk mengamankan pesan dan file. Dibangun
+dengan Laravel dan UI minimalis, C-Mail berfungsi sebagai platform
+ringan untuk belajar, menguji, dan menerapkan teknik enkripsi serta
+penyembunyian pesan secara praktis.
 
-## About Laravel
+------------------------------------------------------------------------
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Fitur Utama
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   **Argon2i Secure Authentication** --- Hashing password yang kuat dan
+    modern.
+-   **ECC (Elliptic Curve Cryptography)** --- Enkripsi asymmetric untuk
+    pesan dan file.
+-   **Super Encryption (Route Cipher + ECC)** --- Lapisan keamanan ganda
+    untuk teks.
+-   **Steganografi DCT + LSB** --- Menyisipkan pesan rahasia ke dalam
+    gambar.
+-   **Secret Message Menu** --- Fitur khusus untuk upload gambar berisi
+    pesan tersembunyi.
+-   **UI Modern & Ringan** --- Tampilan minimalis berbasis HTML/CSS/JS.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+------------------------------------------------------------------------
 
-## Learning Laravel
+## Tech Stack
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+-   **Backend:** Laravel (PHP)
+-   **Crypto Services:** ECC, Route Cipher, Super Encryption, DCT-LSB
+    Steganography
+-   **Database:** MySQL
+-   **Frontend:** HTML, CSS, JavaScript, Tailwind
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+------------------------------------------------------------------------
 
-## Laravel Sponsors
+## Instalasi
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1.  Clone repository:
 
-### Premium Partners
+    ``` bash
+    git clone https://github.com/yourusername/cmail.git
+    cd cmail
+    ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+2.  Install dependencies:
 
-## Contributing
+    ``` bash
+    composer install
+    npm install && npm run build
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+3.  Copy file environment:
 
-## Code of Conduct
+    ``` bash
+    cp .env.example .env
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4.  Generate app key:
 
-## Security Vulnerabilities
+    ``` bash
+    php artisan key:generate
+    ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+5.  Konfigurasi database pada `.env`
 
-## License
+6.  Jalankan migrasi:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    ``` bash
+    php artisan migrate
+    ```
+
+7.  Jalankan server:
+
+    ``` bash
+    php artisan serve
+    ```
+
+------------------------------------------------------------------------
+
+## Fitur Kriptografi
+
+  -----------------------------------------------------------------------
+  Fitur                     Deskripsi
+  ------------------------- ---------------------------------------------
+  **ECC Encryption**        Enkripsi public-key untuk teks dan file.
+
+  **Route Cipher**          Pola scrambling sebelum enkripsi ECC.
+
+  **Super Encryption**      Kombinasi Route Cipher → ECC untuk keamanan
+                            ekstra.
+
+  **Stegano DCT+LSB**       Menyembunyikan pesan dalam file gambar.
+  -----------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+## Struktur Folder Penting
+
+    app/Services/Crypto/
+     ├── ECCService.php
+     ├── RouteCipherService.php
+     ├── SuperEncryptionService.php
+     └── SteganoService.php
+
