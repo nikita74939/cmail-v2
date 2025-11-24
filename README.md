@@ -81,18 +81,15 @@ penyembunyian pesan secara praktis.
 
 ## Fitur Kriptografi
 
-  -----------------------------------------------------------------------
-  Fitur                     Deskripsi
-  ------------------------- ---------------------------------------------
-  **ECC Encryption**        Enkripsi public-key untuk teks dan file.
+  
+  1. **ECC Encryption**        Enkripsi public-key untuk teks dan file.
 
-  **Route Cipher**          Pola scrambling sebelum enkripsi ECC.
+  2. **Route Cipher**          Pola scrambling sebelum enkripsi ECC.
 
-  **Super Encryption**      Kombinasi Route Cipher → ECC untuk keamanan
-                            ekstra.
+  3. **Super Encryption**      Kombinasi Route Cipher → ECC untuk keamanan
+                               ekstra.
 
-  **Stegano DCT+LSB**       Menyembunyikan pesan dalam file gambar.
-  -----------------------------------------------------------------------
+  4. **Stegano DCT+LSB**       Menyembunyikan pesan dalam file gambar.
 
 ------------------------------------------------------------------------
 
